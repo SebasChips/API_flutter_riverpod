@@ -1,16 +1,54 @@
-# carvel
+# Rick & Morty API - Flutter
 
-A new Flutter project.
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Riverpod](https://img.shields.io/badge/Riverpod-8A2BE2?style=for-the-badge)
 
-## Getting Started
+A Flutter application that connects to the Rick & Morty API using Riverpod for state management.
 
-This project is a starting point for a Flutter application.
+## � Requirements
 
-A few resources to get you started if this is your first Flutter project:
+### For Local Development
+- Flutter SDK (latest stable version)
+- Dart SDK
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### For Docker Deployment
+- Docker Engine
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Getting Started
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SebasChips/API_flutter_riverpod.git
+   cd API_flutter_riverpod
+
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+
+3. **Run the application**
+   ```bash
+   flutter run -d web-server
+
+4. **Access the application**
+    Open your browser and navigate to the localhost address provided in the console output
+
+### Docker Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SebasChips/API_flutter_riverpod.git
+   cd API_flutter_riverpod
+
+2. **Create image**
+   ```bash
+   docker build -t rickmorty-api .
+
+3. **Run the image**
+   ```bash
+   docker run --rm -it -p 8080:8080 rickmorty-api
+   
+4. **Open the application**
+   Open your browser and navigate to: http://localhost:8080
