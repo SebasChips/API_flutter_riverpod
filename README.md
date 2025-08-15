@@ -46,6 +46,7 @@ A Flutter application that connects to the Rick & Morty API using Riverpod for s
    docker build -t rickmorty-api .
 
 3. **Run the image**
+   ```bash
    docker run --rm -it -p 8080:8080 rickmorty-api
    
 4. **Open the application**
