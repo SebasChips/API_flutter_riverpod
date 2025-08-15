@@ -14,8 +14,18 @@ class DetailsPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.network(
+              character.image,
+              width: 150,
+              height: 200,
+              fit: BoxFit.fill,
+            ),
             const SizedBox(height: 16),
-            Text('Origin: ${character.gender}'),
+            Text('Género: ${character.gender}'),
+            Text('Especie: ${character.species}'),
+            Text('Estatus: ${character.status}'),
+
+
           ],
         ),
       ),
