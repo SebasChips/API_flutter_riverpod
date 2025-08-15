@@ -6,20 +6,11 @@
 
 A Flutter application that connects to the Rick & Morty API using Riverpod for state management.
 
-## 📋 Features
-
-- Fetch and display characters from the Rick & Morty API
-- Efficient state management with Riverpod
-- Responsive design for multiple platforms
-- Docker support for containerized deployment
-- Clean architecture implementation
-
 ## � Requirements
 
 ### For Local Development
 - Flutter SDK (latest stable version)
 - Dart SDK
-- Chrome browser (for web testing)
 
 ### For Docker Deployment
 - Docker Engine
@@ -50,9 +41,12 @@ A Flutter application that connects to the Rick & Morty API using Riverpod for s
    ```bash
    docker build -t rickmorty-api .
 
-2. **Install dependencies**
+2. **Create image**
    ```bash
-   docker run --rm -it -p 8080:8080 rickmorty-api
+   docker build -t rickmorty-api .
 
-3. **Run the application**
+3. **Run the image**
+   docker run --rm -it -p 8080:8080 rickmorty-api
+   
+4. **Open the application**
    Open your browser and navigate to: http://localhost:8080
