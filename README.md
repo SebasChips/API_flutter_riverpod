@@ -6,13 +6,13 @@
 
 A Flutter application that connects to the Rick & Morty API using Riverpod for state management.
 
-## 🧠 Gestión del estado con Riverpod
+## 🧠 State Management with Riverpod
 
-El proyecto utiliza Riverpod para la gestión del estado, proporcionando una forma flexible y escalable de manejar el estado en aplicaciones Flutter.
+The project uses Riverpod for state management, providing a flexible and scalable way to handle state in Flutter applications.
 
 ## 🐳 Dockerfile
 
-El proyecto incluye un Dockerfile que permite construir y ejecutar la aplicación en un contenedor Docker, facilitando el despliegue y la ejecución en diferentes entornos.
+The project includes a Dockerfile that allows building and running the application in a Docker container, making deployment and execution across different environments easier.
 
 ## � Requirements
 
