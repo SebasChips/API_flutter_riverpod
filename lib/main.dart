@@ -4,8 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'details.dart';
 
-
-
 //Inicialización de la app con riverpod
 void main() {
   runApp(const ProviderScope(child: RickAndMorty()));
@@ -34,8 +32,6 @@ class CharacterRickAndMorty {
   final String gender;
   final String status;
 
-
-
   CharacterRickAndMorty({
     required this.id,
     required this.name,
@@ -59,7 +55,10 @@ class CharacterRickAndMorty {
 }
 
 //Obtención de datos de la API con función asíncrona
-Future<List<CharacterRickAndMorty>> fetchCharacters(int page, String search) async {
+Future<List<CharacterRickAndMorty>> fetchCharacters(
+  int page,
+  String search,
+) async {
   final uri = Uri.parse(
     'https://rickandmortyapi.com/api/character?page=$page${search.isNotEmpty ? "&name=$search" : ""}',
   );
@@ -73,6 +72,7 @@ Future<List<CharacterRickAndMorty>> fetchCharacters(int page, String search) asy
     throw Exception('Error al cargar personajes');
   }
 }
+
 final currentPageProvider = StateProvider<int>((ref) => 1);
 final currentSearchProvider = StateProvider<String>((ref) => "");
 
@@ -84,13 +84,11 @@ final charactersProvider = FutureProvider<List<CharacterRickAndMorty>>((ref) {
 });
 
 class CharactersPage extends ConsumerWidget {
-
   const CharactersPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final charactersAsync = ref.watch(charactersProvider);
     final page = ref.watch(currentPageProvider);
-    final search = ref.watch(currentSearchProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -109,20 +107,24 @@ class CharactersPage extends ConsumerWidget {
                 prefixIcon: Icon(Icons.search),
               ),
               onSubmitted: (value) {
-                ref.read(currentPageProvider.notifier).state = 1; // Reinicia página
+                ref.read(currentPageProvider.notifier).state = 1;
                 ref.read(currentSearchProvider.notifier).state = value.trim();
               },
             ),
           ),
+
+          //Cards con botón de descripción. Row limitado al tamaño de la respuesta
           Expanded(
             child: charactersAsync.when(
               data: (characters) => ListView.builder(
-
                 itemCount: characters.length,
                 itemBuilder: (context, index) {
                   var c = characters[index];
                   return Card(
-                    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    margin: const EdgeInsets.symmetric(
+                      vertical: 8,
+                      horizontal: 16,
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -167,8 +169,7 @@ class CharactersPage extends ConsumerWidget {
                   );
                 },
               ),
-              loading: () =>
-              const Center(child: CircularProgressIndicator()),
+              loading: () => const Center(child: CircularProgressIndicator()),
               error: (err, stack) => Center(child: Text('Error: $err')),
             ),
           ),
@@ -185,8 +186,7 @@ class CharactersPage extends ConsumerWidget {
               ),
               Text('Página $page'),
               TextButton(
-                onPressed: () =>
-                ref.read(currentPageProvider.notifier).state++,
+                onPressed: () => ref.read(currentPageProvider.notifier).state++,
                 child: const Text('Siguiente'),
               ),
             ],

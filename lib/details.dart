@@ -3,9 +3,7 @@ import 'main.dart';
 
 class DetailsPage extends StatelessWidget {
   final CharacterRickAndMorty character;
-
   const DetailsPage({super.key, required this.character});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +22,6 @@ class DetailsPage extends StatelessWidget {
             Text('Género: ${character.gender}'),
             Text('Especie: ${character.species}'),
             Text('Estatus: ${character.status}'),
-
-
           ],
         ),
       ),
