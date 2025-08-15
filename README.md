@@ -35,7 +35,7 @@ A Flutter application that connects to the Rick & Morty API using Riverpod for s
 4. **Access the application**
     Open your browser and navigate to the localhost address provided in the console output
 
-### Local Development
+### Docker Development
 
 1. **Clone the repository**
    ```bash
